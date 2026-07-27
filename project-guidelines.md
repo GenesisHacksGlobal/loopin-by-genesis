@@ -80,7 +80,7 @@ Documentation is a core requirement, not an afterthought. No pull request (PR) w
 
 * **Strict Milestone Dates:** All tasks, PR submissions, and code reviews must adhere strictly to the schedule established in `roadmap.md`.
 * **Timely Submissions:** Ensure code is ready for review well before the milestone cutoff to allow adequate time for QA, testing, and feedback.
-* **Blockers:** If you encounter a blocking issue that threatens a deadline, immediately log it in `common_errorlogbook.md` and notify the lead.
+* **Blockers:** If you encounter a blocking issue that threatens a deadline, immediately log it in `common_errorlogbook.md` and notify the team.
 
 ---
 
