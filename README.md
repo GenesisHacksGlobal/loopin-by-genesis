@@ -5,22 +5,22 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Overview & Vision](#-overview--vision)
-- [Key Features](#-key-features)
-- [System Architecture](#-system-architecture)
-- [Technology Stack](#-technology-stack)
-- [Technical Execution & Platform Strategy](#-technical-execution--platform-strategy)
-- [Directory Layout](#-directory-layout)
-- [Implementation Roadmap](#-implementation-roadmap)
-- [Development Quick Start](#-development-quick-start)
-- [Security, Privacy & Compliance](#-security-privacy--compliance)
-- [Documentation Index](#-documentation-index)
+- [Overview & Vision](#overview--vision)
+- [Key Features](#key-features)
+- [System Architecture](#system-architecture)
+- [Technology Stack](#technology-stack)
+- [Technical Execution & Platform Strategy](#technical-execution--platform-strategy)
+- [Directory Layout](#directory-layout)
+- [Implementation Roadmap](#implementation-roadmap)
+- [Development Quick Start](#development-quick-start)
+- [Security, Privacy & Compliance](#security-privacy--compliance)
+- [Documentation Index](#documentation-index)
 
 ---
 
-## 🎯 Overview & Vision
+## Overview & Vision
 
 ### The Problem
 During 24–48 hour hackathons and developer meetups, builders meet dozens of talented peers. However, traditional networking breaks down immediately after events end:
@@ -36,32 +36,32 @@ During 24–48 hour hackathons and developer meetups, builders meet dozens of ta
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 1. 🔑 Passwordless Authentication & Multi-Level Profiles
+### 1. Passwordless Authentication & Multi-Level Profiles
 - **OTP Verification:** Instant login via SMS or Email OTP; no password overhead or credential leak risk.
 - **Global Hacker Profile:** Aggregates cumulative connections, event badges, and tech stack across all Genesis events.
 - **Event-Scoped Profile:** Includes name, role/title, and a single-line project pitch (*"What I'm building / looking for"*).
 - **Granular Privacy Controls:** Social link visibility (GitHub, LinkedIn, X, Discord, Portfolio, Instagram) defaults to **OFF** until explicitly toggled per platform.
 
-### 2. 📱 Dynamic QR Badge & Instant Mutual Scan
+### 2. Dynamic QR Badge & Instant Mutual Scan
 - **Cryptographic Opaque Payload:** QR codes encode short-lived, cryptographically signed tokens (`userId`, `eventId`, `timestamp`). No raw personal data is ever exposed in the QR code.
 - **Two-Way Mutual Exchange:** A single scan by either party seamlessly unlocks profiles for **both** attendees simultaneously.
 - **Low-Latency Feedback:** In-app scan recognition and haptic/visual confirmation within `< 400ms`.
 
-### 3. 📝 Connection Management & Export
+### 3. Connection Management & Export
 - **Private Encrypted Notes:** Write post-scan notes (e.g., *"Discussed building a Solana indexing agent together"*). Notes are encrypted and accessible **exclusively** by the author; event organizers have zero access.
 - **Fast Search & Cursor Pagination:** Filter contacts instantly by name, role, skill tags, or private notes with sub-200ms query response SLAs.
 - **Automated Summary & Export:** Receive post-event digest emails and download connections on-demand as `.CSV` or `.vCard` (`.vcf`) files for direct CRM/Google Contacts import.
 
-### 4. 🌐 Genesis Community Hub
+### 4. Genesis Community Hub
 - **Direct Event Feed:** Discover upcoming Genesis hackathons, workshops, and local meetups with one-tap registration.
 - **Real-Time Push Notifications:** Instant targeted alerts for registration openings, submission deadlines, and demo days.
 - **Cross-Event Hacker Graph:** Automatically links repeat connections across multiple Genesis events into a central network timeline.
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
    +-------------------------------------------------------+
@@ -99,7 +99,7 @@ During 24–48 hour hackathons and developer meetups, builders meet dozens of ta
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Component | Technology Choice | Rationale |
 | :--- | :--- | :--- | :--- |
@@ -112,7 +112,7 @@ During 24–48 hour hackathons and developer meetups, builders meet dozens of ta
 
 ---
 
-## ⚡ Technical Execution & Platform Strategy
+## Technical Execution & Platform Strategy
 
 Loopin utilizes a **Capacitor-first dual target architecture**:
 1. **Primary Release Target:** Native Android Application (`com.genesis.loopin` / `com.genesis.sync`) compiled via Capacitor. Grants access to native camera bridges, native push notifications (FCM), native haptics, and background sync.
@@ -173,7 +173,7 @@ export const useScanner = () => {
 
 ---
 
-## 📂 Directory Layout
+## Directory Layout
 
 ```
 loopin/
@@ -199,7 +199,7 @@ loopin/
 
 ---
 
-## 🗓️ Implementation Roadmap
+## Implementation Roadmap
 
 ```
 +-------------------------------------------------------------------------------------------------+
@@ -224,7 +224,7 @@ loopin/
 
 ---
 
-## 💻 Development Quick Start
+## Development Quick Start
 
 ### 1. Prerequisites
 - **Node.js**: `v18.x` or higher
@@ -257,7 +257,7 @@ npx cap add android
 
 ---
 
-## 🔒 Security, Privacy & Compliance
+## Security, Privacy & Compliance
 
 - **Opaque Cryptographic QR Codes:** Payload contains short-lived signed tokens; zero personal data exposed in raw QR codes.
 - **Private Notes Confidentiality:** Private post-scan notes are encrypted with author-level keys. Organizers or third parties cannot read private notes under any circumstances.
@@ -266,14 +266,14 @@ npx cap add android
 
 ---
 
-## 📚 Documentation Index
+## Documentation Index
 
 For detailed deep-dives into specific aspects of the Loopin platform, refer to the individual documentation files:
 
-- 📄 [project_overview.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/project_overview.md) — Executive summary, system architecture diagram, and core product positioning.
-- 📄 [execution.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/execution.md) — Technical execution strategy for React + Capacitor Android development, native hooks, and AndroidManifest configuration.
-- 📄 [features.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/features.md) — Granular feature specification for authentication, mutual QR scanning, notes, feed, and organizer dashboard.
-- 📄 [roadmap.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/roadmap.md) — 9-week milestone roadmap breakdown covering Phase 1 through Phase 5.
+- [project_overview.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/project_overview.md) — Executive summary, system architecture diagram, and core product positioning.
+- [execution.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/execution.md) — Technical execution strategy for React + Capacitor Android development, native hooks, and AndroidManifest configuration.
+- [features.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/features.md) — Granular feature specification for authentication, mutual QR scanning, notes, feed, and organizer dashboard.
+- [roadmap.md](file:///mnt/Garvit%20Prakash/Projects/Loopin/loopin/roadmap.md) — 9-week milestone roadmap breakdown covering Phase 1 through Phase 5.
 
 ---
 
