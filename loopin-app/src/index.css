@@ -2,20 +2,34 @@
 
 @layer base {
   :root {
-    --bg-main: #0b0f19;
-    --bg-card: rgba(17, 24, 39, 0.75);
-    --border-card: rgba(255, 255, 255, 0.08);
-    --accent-indigo: #6366f1;
-    --accent-purple: #8b5cf6;
-    --accent-emerald: #10b981;
-    --text-primary: #f9fafb;
-    --text-muted: #9ca3af;
+    /* DESIGN.md Color Tokens */
+    --color-primary: #533afd;
+    --color-primary-deep: #4434d4;
+    --color-primary-press: #2e2b8c;
+    --color-primary-soft: #665efd;
+    --color-primary-bg-subdued-hover: #b9b9f9;
+    --color-brand-dark-900: #1c1e54;
+    --color-ink: #0d253d;
+    --color-ink-secondary: #273951;
+    --color-ink-mute: #64748d;
+    --color-ink-mute-2: #61718a;
+    --color-on-primary: #ffffff;
+    --color-canvas: #ffffff;
+    --color-canvas-soft: #f6f9fc;
+    --color-canvas-cream: #f5e9d4;
+    --color-hairline: #e3e8ee;
+    --color-hairline-input: #a8c3de;
+    --color-ruby: #ea2261;
+    --color-magenta: #f96bee;
+    --color-lemon: #9b6829;
+    --color-shadow-blue: #003770;
   }
 
   body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #0b0f19;
+    color: #f8fafc;
+    font-family: 'Inter', "SF Pro Display", system-ui, -apple-system, sans-serif;
+    font-feature-settings: "ss01";
     min-height: 100vh;
     overflow-x: hidden;
     margin: 0;
@@ -24,74 +38,266 @@
   }
 }
 
-/* Glassmorphism utilities */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.7);
+/* DESIGN.md Typographic Hierarchy Utilities */
+.font-display-xxl {
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: -1.4px;
+  font-feature-settings: "ss01";
+}
+
+.font-display-xl {
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.96px;
+  font-feature-settings: "ss01";
+}
+
+.font-display-lg {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.64px;
+  font-feature-settings: "ss01";
+}
+
+.font-display-md {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.12;
+  letter-spacing: -0.26px;
+  font-feature-settings: "ss01";
+}
+
+.font-heading-lg {
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.22px;
+  font-feature-settings: "ss01";
+}
+
+.font-heading-md {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+  font-feature-settings: "ss01";
+}
+
+.font-body-md {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-feature-settings: "ss01";
+}
+
+/* OpenType Tabular Figures for Money, Counts, and Numeric Data */
+.font-tabular {
+  font-feature-settings: "tnum", "ss01";
+  letter-spacing: -0.42px;
+}
+
+/* Atmospheric Gradient Mesh Backdrop */
+.gradient-mesh-hero {
+  background: radial-gradient(at 0% 0%, rgba(245, 233, 212, 0.25) 0px, transparent 50%),
+              radial-gradient(at 40% 10%, rgba(155, 104, 41, 0.2) 0px, transparent 50%),
+              radial-gradient(at 70% 0%, rgba(234, 34, 97, 0.25) 0px, transparent 50%),
+              radial-gradient(at 100% 20%, rgba(83, 58, 253, 0.3) 0px, transparent 50%),
+              radial-gradient(at 50% 50%, rgba(249, 107, 238, 0.2) 0px, transparent 50%),
+              #0b0f19;
+  position: relative;
+}
+
+/* DESIGN.md Button Components */
+.btn-primary-pill {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.0;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(83, 58, 253, 0.3);
+}
+
+.btn-primary-pill:hover {
+  background-color: var(--color-primary-deep);
+  box-shadow: 0 6px 20px rgba(83, 58, 253, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary-pill:active {
+  background-color: var(--color-primary-press);
+  transform: translateY(0);
+}
+
+.btn-secondary-pill {
+  background-color: transparent;
+  color: #e2e8f0;
+  border: 1px solid var(--color-hairline-input);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary-pill:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-primary-soft);
+  color: #ffffff;
+}
+
+.btn-on-dark-pill {
+  background-color: var(--color-brand-dark-900);
+  color: var(--color-on-primary);
+  border: 1px solid rgba(83, 58, 253, 0.3);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-on-dark-pill:hover {
+  background-color: #252869;
+  border-color: var(--color-primary-soft);
+}
+
+/* DESIGN.md Card Surface Components */
+.card-feature-light {
+  background-color: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid var(--color-hairline);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 55, 112, 0.08);
 }
 
-.glass-panel-glow {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 25px rgba(99, 102, 241, 0.15);
+.card-pricing-featured {
+  background-color: var(--color-brand-dark-900);
+  color: var(--color-on-primary);
+  border: 1px solid rgba(83, 58, 253, 0.4);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 55, 112, 0.15), 0 2px 6px rgba(0, 55, 112, 0.08);
 }
 
-.glass-input {
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f3f4f6;
+.card-cream-band {
+  background-color: var(--color-canvas-cream);
+  color: var(--color-ink);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(155, 104, 41, 0.12);
 }
 
-.glass-input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+.card-dashboard-mockup {
+  background-color: var(--color-ink);
+  color: var(--color-on-primary);
+  border: 1px solid rgba(168, 195, 222, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 55, 112, 0.2);
+}
+
+/* DESIGN.md Soft Tag Pill Component */
+.pill-tag-soft {
+  background-color: var(--color-primary-bg-subdued-hover);
+  color: var(--color-primary-deep);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.1px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* DESIGN.md Input Field Component */
+.text-input-stripi {
+  background-color: rgba(13, 37, 61, 0.6);
+  color: #f8fafc;
+  border: 1px solid var(--color-hairline-input);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.text-input-stripi:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(83, 58, 253, 0.25);
   outline: none;
 }
 
-/* Linear & Mesh Gradients */
+/* Legacy glass fallbacks */
+.glass-panel {
+  background: rgba(13, 37, 61, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(227, 232, 238, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 55, 112, 0.2);
+}
+
+.glass-panel-glow {
+  background: rgba(28, 30, 84, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(83, 58, 253, 0.35);
+  box-shadow: 0 0 30px rgba(83, 58, 253, 0.2);
+}
+
+.glass-input {
+  background: rgba(13, 37, 61, 0.7);
+  border: 1px solid var(--color-hairline-input);
+  color: #ffffff;
+}
+
+.glass-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(83, 58, 253, 0.3);
+  outline: none;
+}
+
 .gradient-text {
-  background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #34d399 100%);
+  background: linear-gradient(135deg, #a5b4fc 0%, #665efd 50%, #f96bee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-btn {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  transition: all 0.25s ease;
+  background: var(--color-primary);
+  border-radius: 9999px;
+  transition: all 0.2s ease;
 }
 
 .gradient-btn:hover {
-  background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
-}
-
-.gradient-emerald-btn {
-  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-}
-
-.gradient-emerald-btn:hover {
-  background: linear-gradient(135deg, #047857 0%, #059669 100%);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  background: var(--color-primary-deep);
+  box-shadow: 0 6px 20px rgba(83, 58, 253, 0.45);
 }
 
 /* Animations */
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 3s infinite ease-in-out;
-}
-
 @keyframes scanLine {
   0% {
     top: 5%;
@@ -121,16 +327,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #1c1e54;
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
-}
-
-/* Capacitor Native Barcode Body transparent class */
 body.barcode-scanner-active {
   background-color: transparent !important;
-  --bg-main: transparent !important;
 }

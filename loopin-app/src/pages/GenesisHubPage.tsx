@@ -11,41 +11,49 @@ interface GenesisHubPageProps {
 export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) => {
   return (
     <div className="w-full pb-28 pt-2 px-4 space-y-6 max-w-2xl mx-auto animate-in fade-in duration-300">
-      {/* Genesis Hub Banner */}
-      <div className="glass-panel-glow rounded-3xl p-6 border border-indigo-500/30 shadow-2xl relative overflow-hidden space-y-3">
-        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-purple-600/20 to-transparent rounded-full blur-2xl pointer-events-none" />
-
+      {/* Genesis Hub Banner (card-dashboard-mockup) */}
+      <div className="card-dashboard-mockup relative overflow-hidden space-y-4">
         <div className="flex items-center space-x-2">
-          <div className="p-2 rounded-xl bg-indigo-600/30 border border-indigo-500/40 text-indigo-300">
+          <div className="p-2 rounded-full bg-[#533afd]/30 border border-[#533afd]/40 text-[#b9b9f9]">
             <Compass className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-indigo-400">
-              Genesis Ecosystem Portal
-            </span>
-            <h2 className="text-xl font-black text-white tracking-tight">Genesis Direct Feed</h2>
+            <span className="pill-tag-soft">Genesis Ecosystem Portal</span>
+            <h2 className="font-display-lg text-2xl text-white font-light tracking-tight">Genesis Direct Feed</h2>
           </div>
         </div>
 
-        <p className="text-xs text-slate-300 leading-relaxed">
-          Bridging discrete offline hackathons and meetups into a unified digital builder network. Discover upcoming events and track ecosystem achievements.
+        <p className="font-body-md text-xs text-[#a8c3de] leading-relaxed">
+          Bridging discrete offline hackathons and meetups into a unified digital builder network. Discover upcoming events and track ecosystem credentials.
         </p>
+      </div>
 
-        {/* Ecosystem Hacker Graph Stat Pill */}
-        <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800/80">
-          <div className="p-3 rounded-xl bg-slate-900/70 border border-slate-800 flex items-center space-x-3">
-            <Trophy className="w-6 h-6 text-amber-400 flex-shrink-0" />
+      {/* Warm Cream Band Feature Card (card-cream-band from DESIGN.md) */}
+      <div className="card-cream-band space-y-3">
+        <div className="flex items-center justify-between">
+          <h3 className="font-display-md text-lg text-[#0d253d] font-normal tracking-tight flex items-center gap-2">
+            <Trophy className="w-5 h-5 text-[#9b6829]" />
+            Ecosystem Network Analytics
+          </h3>
+          <span className="pill-tag-soft bg-[#0d253d] text-white font-tabular">
+            Live Graph
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 pt-1 font-tabular">
+          <div className="p-3 rounded-xl bg-white/80 border border-[#9b6829]/20 shadow-sm flex items-center space-x-3">
+            <Trophy className="w-6 h-6 text-[#9b6829] flex-shrink-0" />
             <div>
-              <span className="text-base font-extrabold text-white block">{user.badges.length} Unlocked</span>
-              <span className="text-[10px] text-slate-400 font-semibold uppercase">Ecosystem Badges</span>
+              <span className="text-lg font-bold text-[#0d253d] block">{user.badges.length} Unlocked</span>
+              <span className="text-[10px] text-[#64748d] font-semibold uppercase">Ecosystem Credentials</span>
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-slate-900/70 border border-slate-800 flex items-center space-x-3">
-            <Flame className="w-6 h-6 text-rose-400 flex-shrink-0" />
+          <div className="p-3 rounded-xl bg-white/80 border border-[#ea2261]/20 shadow-sm flex items-center space-x-3">
+            <Flame className="w-6 h-6 text-[#ea2261] flex-shrink-0" />
             <div>
-              <span className="text-base font-extrabold text-white block">{user.totalConnections} Builders</span>
-              <span className="text-[10px] text-slate-400 font-semibold uppercase">Network Graph</span>
+              <span className="text-lg font-bold text-[#0d253d] block">{user.totalConnections} Builders</span>
+              <span className="text-[10px] text-[#64748d] font-semibold uppercase">Mutual Network</span>
             </div>
           </div>
         </div>
@@ -53,27 +61,27 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
 
       {/* Earnable Community Badges Showcase */}
       <div className="space-y-3">
-        <h3 className="text-sm font-extrabold text-white flex items-center gap-2">
-          <Award className="w-4 h-4 text-purple-400" />
-          Ecosystem Hacker Credentials
+        <h3 className="font-display-md text-lg text-white font-light flex items-center gap-2">
+          <Award className="w-5 h-5 text-[#f96bee]" />
+          Verified Hacker Credentials
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {user.badges.map((b) => (
             <div
               key={b.id}
-              className="glass-panel p-3.5 rounded-2xl border border-indigo-500/20 hover:border-indigo-500/40 transition-colors space-y-1.5"
+              className="card-feature-light p-3.5 border border-[#e3e8ee]/15 hover:border-[#533afd]/40 transition-colors space-y-1.5"
             >
               <div className="flex items-center justify-between">
-                <span className="p-1.5 rounded-lg bg-indigo-500/20 text-indigo-300">
+                <span className="p-1.5 rounded-full bg-[#533afd]/20 text-[#b9b9f9]">
                   <Sparkles className="w-4 h-4" />
                 </span>
-                <span className="text-[9px] text-emerald-400 font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                <span className="pill-tag-soft bg-emerald-500/20 text-emerald-300 font-tabular">
                   Verified
                 </span>
               </div>
-              <h4 className="text-xs font-extrabold text-white">{b.name}</h4>
-              <p className="text-[11px] text-slate-400 leading-tight">{b.description}</p>
+              <h4 className="font-heading-md text-xs font-semibold text-white">{b.name}</h4>
+              <p className="font-body-md text-[11px] text-[#64748d] leading-tight">{b.description}</p>
             </div>
           ))}
         </div>
@@ -81,12 +89,12 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
 
       {/* Genesis Events Feed */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-sm font-extrabold text-white flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-indigo-400" />
+        <div className="flex items-center justify-between font-tabular">
+          <h3 className="font-display-md text-lg text-white font-light flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-[#533afd]" />
             Official Hackathons & Workshops
           </h3>
-          <span className="text-[11px] text-slate-400">{events.length} Active Events</span>
+          <span className="pill-tag-soft">{events.length} Active Events</span>
         </div>
 
         <div className="space-y-4">

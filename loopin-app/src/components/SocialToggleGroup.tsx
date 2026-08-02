@@ -70,20 +70,20 @@ export const SocialToggleGroup: React.FC<SocialToggleGroupProps> = ({
   ];
 
   return (
-    <div className="glass-panel rounded-2xl p-5 border border-slate-800 space-y-4">
-      <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+    <div className="card-feature-light space-y-4">
+      <div className="flex items-center justify-between border-b border-[#e3e8ee]/10 pb-3">
         <div>
-          <h4 className="text-sm font-extrabold text-white flex items-center gap-2">
+          <h4 className="font-heading-md text-sm text-white font-light flex items-center gap-2">
             <Shield className="w-4 h-4 text-emerald-400" />
-            Granular Social Link Privacy
+            Granular Social Privacy Controls
           </h4>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Privacy default is <strong className="text-amber-400 font-bold">OFF</strong>. Only enabled links appear in scanned QR badges.
+          <p className="font-body-md text-xs text-[#64748d] mt-0.5">
+            Privacy default is <strong className="text-amber-400 font-medium">OFF</strong>. Only enabled links transmit in scanned QR badges.
           </p>
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 font-tabular">
         {platforms.map(({ key, label, icon: Icon, placeholder }) => {
           const isVisible = visibility[key];
           const currentValue = socialLinks[key] || '';
@@ -93,14 +93,14 @@ export const SocialToggleGroup: React.FC<SocialToggleGroupProps> = ({
               key={key}
               className={`p-3 rounded-xl border transition-all ${
                 isVisible
-                  ? 'bg-indigo-950/20 border-indigo-500/40'
-                  : 'bg-slate-900/60 border-slate-800/80 opacity-80'
+                  ? 'bg-[#1c1e54]/50 border-[#533afd]/40'
+                  : 'bg-[#0d253d]/60 border-[#e3e8ee]/10 opacity-80'
               }`}
             >
               <div className="flex items-center justify-between gap-2 mb-2">
                 <div className="flex items-center gap-2">
-                  <Icon className={`w-4 h-4 ${isVisible ? 'text-indigo-400' : 'text-slate-500'}`} />
-                  <span className="text-xs font-bold text-slate-200">{label}</span>
+                  <Icon className={`w-4 h-4 ${isVisible ? 'text-[#533afd]' : 'text-[#64748d]'}`} />
+                  <span className="text-xs font-semibold text-slate-200">{label}</span>
                 </div>
 
                 <button
@@ -108,8 +108,8 @@ export const SocialToggleGroup: React.FC<SocialToggleGroupProps> = ({
                   onClick={() => onToggle(key)}
                   className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold transition-all ${
                     isVisible
-                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm'
-                      : 'bg-slate-800 text-slate-400 border border-slate-700'
+                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                      : 'bg-[#1c1e54] text-[#64748d] border border-[#a8c3de]/20'
                   }`}
                 >
                   {isVisible ? (
@@ -131,7 +131,7 @@ export const SocialToggleGroup: React.FC<SocialToggleGroupProps> = ({
                 placeholder={placeholder}
                 value={currentValue}
                 onChange={(e) => onUpdateLink(key, e.target.value)}
-                className="w-full px-3 py-1.5 rounded-lg glass-input text-xs"
+                className="w-full px-3 py-1.5 text-input-stripi text-xs"
               />
             </div>
           );

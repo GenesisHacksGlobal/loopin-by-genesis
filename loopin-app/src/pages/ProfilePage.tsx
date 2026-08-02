@@ -65,27 +65,27 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
   return (
     <div className="w-full pb-28 pt-2 px-4 space-y-6 max-w-2xl mx-auto animate-in fade-in duration-300">
-      {/* Header */}
-      <div className="glass-panel-glow rounded-3xl p-6 border border-indigo-500/30 shadow-2xl flex items-center space-x-4">
+      {/* Header Profile Banner */}
+      <div className="card-dashboard-mockup flex items-center space-x-4">
         <img
           src={user.avatar}
           alt={user.fullName}
-          className="w-16 h-16 rounded-2xl object-cover border-2 border-indigo-500/40 shadow-lg"
+          className="w-16 h-16 rounded-full object-cover border-2 border-[#533afd]/40 shadow-lg"
         />
         <div>
-          <h2 className="text-xl font-black text-white">{user.fullName}</h2>
-          <p className="text-xs text-indigo-400 font-semibold">{user.roleTitle}</p>
-          <span className="text-[10px] text-slate-400 block mt-0.5">
+          <h2 className="font-display-lg text-xl text-white font-light">{user.fullName}</h2>
+          <p className="font-body-md text-xs text-[#b9b9f9] font-medium">{user.roleTitle}</p>
+          <span className="text-[10px] text-[#64748d] block mt-0.5 font-tabular">
             Global Identity • {user.totalConnections} Connections
           </span>
         </div>
       </div>
 
       <form onSubmit={handleSaveProfile} className="space-y-5">
-        {/* Global Hacker Info */}
-        <div className="glass-panel rounded-2xl p-5 border border-slate-800 space-y-4">
-          <h3 className="text-sm font-extrabold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-            <User className="w-4 h-4 text-indigo-400" />
+        {/* Global Hacker Info (card-feature-light) */}
+        <div className="card-feature-light space-y-4">
+          <h3 className="font-heading-md text-sm text-white font-light flex items-center gap-2 border-b border-[#e3e8ee]/10 pb-3">
+            <User className="w-4 h-4 text-[#533afd]" />
             Global Identity & Bio
           </h3>
 
@@ -96,7 +96,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                 type="text"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl glass-input text-xs"
+                className="w-full px-3 py-2 text-input-stripi text-xs"
               />
             </div>
             <div className="space-y-1">
@@ -105,7 +105,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                 type="text"
                 value={roleTitle}
                 onChange={(e) => setRoleTitle(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl glass-input text-xs"
+                className="w-full px-3 py-2 text-input-stripi text-xs"
               />
             </div>
           </div>
@@ -116,7 +116,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
               rows={2}
               value={bio}
               onChange={(e) => setBio(e.target.value)}
-              className="w-full p-3 rounded-xl glass-input text-xs"
+              className="w-full p-3 text-input-stripi text-xs"
             />
           </div>
 
@@ -135,12 +135,12 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                     handleAddTech();
                   }
                 }}
-                className="flex-1 px-3 py-1.5 rounded-xl glass-input text-xs"
+                className="flex-1 px-3 py-1.5 text-input-stripi text-xs"
               />
               <button
                 type="button"
                 onClick={handleAddTech}
-                className="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs"
+                className="btn-primary-pill py-1.5 px-3 text-xs"
               >
                 <Plus className="w-4 h-4" />
               </button>
@@ -149,11 +149,11 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-xs font-semibold px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center gap-1"
+                  className="pill-tag-soft flex items-center gap-1"
                 >
                   {tech}
                   <button type="button" onClick={() => handleRemoveTech(tech)}>
-                    <X className="w-3 h-3 text-slate-400 hover:text-white" />
+                    <X className="w-3 h-3 text-[#533afd] hover:text-white" />
                   </button>
                 </span>
               ))}
@@ -162,20 +162,20 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
         </div>
 
         {/* Event-Scoped Pitch Box */}
-        <div className="glass-panel rounded-2xl p-5 border border-slate-800 space-y-3">
-          <h3 className="text-sm font-extrabold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-            <Sparkles className="w-4 h-4 text-purple-400" />
+        <div className="card-feature-light space-y-3">
+          <h3 className="font-heading-md text-sm text-white font-light flex items-center gap-2 border-b border-[#e3e8ee]/10 pb-3">
+            <Sparkles className="w-4 h-4 text-[#f96bee]" />
             Event-Scoped Pitch ("What I'm building / looking for")
           </h3>
-          <p className="text-xs text-slate-400">
-            This single-line elevator pitch is displayed on your active event QR badge.
+          <p className="font-body-md text-xs text-[#64748d]">
+            This single-line elevator pitch is displayed on your active event QR badge pass.
           </p>
           <input
             type="text"
             value={pitch}
             onChange={(e) => setPitch(e.target.value)}
             placeholder="e.g. Building Solana ZK indexer. Looking for Rust dev!"
-            className="w-full px-3 py-2 rounded-xl glass-input text-xs"
+            className="w-full px-3 py-2 text-input-stripi text-xs"
           />
         </div>
 
@@ -190,12 +190,12 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
         {/* Save Changes Button */}
         <button
           type="submit"
-          className="w-full py-3.5 rounded-xl gradient-btn text-white font-extrabold text-xs shadow-lg shadow-indigo-600/30 flex items-center justify-center space-x-2 hover:scale-[1.01] transition-transform"
+          className="w-full py-3.5 btn-primary-pill text-xs font-semibold shadow-lg flex items-center justify-center space-x-2"
         >
           {savedSuccess ? (
             <>
               <CheckCircle2 className="w-4 h-4 text-emerald-300" />
-              <span>Profile Updated Successfully!</span>
+              <span className="font-tabular">Profile Updated Successfully!</span>
             </>
           ) : (
             <>
@@ -207,22 +207,22 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
       </form>
 
       {/* Account Settings & Regulatory Deletion */}
-      <div className="glass-panel rounded-2xl p-5 border border-slate-800 space-y-3">
-        <h4 className="text-xs font-bold text-slate-300">Account & Regulatory Compliance</h4>
+      <div className="card-feature-light space-y-3">
+        <h4 className="text-xs font-semibold text-[#a8c3de]">Account & Regulatory Compliance</h4>
         <div className="flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={onLogout}
-            className="flex-1 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
+            className="btn-secondary-pill flex-1 py-2.5 px-3 text-xs"
           >
-            <LogOut className="w-4 h-4 text-slate-400" />
+            <LogOut className="w-4 h-4 text-[#64748d]" />
             <span>Sign Out</span>
           </button>
 
           <button
             type="button"
             onClick={() => setShowDeleteConfirm(!showDeleteConfirm)}
-            className="flex-1 py-2.5 px-3 rounded-xl bg-rose-950/20 hover:bg-rose-900/40 border border-rose-500/30 text-rose-300 font-semibold text-xs flex items-center justify-center gap-2 transition-colors"
+            className="flex-1 py-2.5 px-3 rounded-full bg-rose-950/30 border border-rose-500/30 text-rose-300 font-semibold text-xs flex items-center justify-center gap-2 hover:bg-rose-900/50 transition-colors"
           >
             <Trash2 className="w-4 h-4 text-rose-400" />
             <span>Delete Account</span>
@@ -231,7 +231,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
         {/* Delete Confirmation */}
         {showDeleteConfirm && (
-          <div className="p-4 rounded-xl bg-rose-950/60 border border-rose-500/50 space-y-2 text-xs animate-in fade-in">
+          <div className="p-4 rounded-xl bg-rose-950/60 border border-rose-500/50 space-y-2 text-xs animate-in fade-in font-tabular">
             <span className="text-white font-bold block">DPDP Act 2023 / GDPR Right to be Forgotten</span>
             <p className="text-rose-200">
               Permanently delete your profile and purge all personal records within 30 days.
@@ -243,14 +243,14 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                 <button
                   type="button"
                   onClick={handleAccountDeletion}
-                  className="px-3 py-1.5 rounded-lg bg-rose-600 text-white font-bold text-xs"
+                  className="px-3 py-1.5 rounded-full bg-rose-600 text-white font-bold text-xs"
                 >
                   Confirm Permanent Erasure
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowDeleteConfirm(false)}
-                  className="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 font-semibold text-xs"
+                  className="px-3 py-1.5 rounded-full bg-[#1c1e54] text-slate-300 font-semibold text-xs"
                 >
                   Cancel
                 </button>

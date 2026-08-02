@@ -24,33 +24,31 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      {/* Top Header Bar */}
-      <header className="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/80 px-4 py-3">
+      {/* nav-bar-on-mesh Component */}
+      <header className="sticky top-0 z-40 w-full bg-[#0d253d]/80 backdrop-blur-md border-b border-[#e3e8ee]/10 px-4 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25">
-              <Sparkles className="w-5.5 h-5.5 animate-pulse" />
-              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-slate-900" />
+            <div className="relative flex items-center justify-center w-9 h-9 rounded-full bg-[#533afd] text-white shadow-md shadow-[#533afd]/30">
+              <Sparkles className="w-5 h-5" />
+              <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0d253d]" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="font-extrabold text-lg tracking-tight gradient-text">Loopin</span>
-                <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                  by Genesis
-                </span>
+                <span className="font-display-lg text-lg text-white font-light tracking-tight">Loopin</span>
+                <span className="pill-tag-soft">by Genesis</span>
               </div>
-              <p className="text-xs text-slate-400 flex items-center gap-1 font-medium">
+              <p className="text-[11px] text-[#64748d] flex items-center gap-1 font-tabular">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block" />
                 {eventName}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center space-x-2">
-            {/* Quick Scan Action Header Button */}
+          <div className="flex items-center space-x-2.5">
+            {/* button-primary-pill CTA */}
             <button
               onClick={openScanner}
-              className="hidden sm:flex items-center space-x-2 px-3.5 py-1.5 rounded-xl gradient-btn text-white text-xs font-semibold shadow-md hover:scale-105 transition-transform"
+              className="btn-primary-pill"
             >
               <Scan className="w-4 h-4" />
               <span>Scan Badge</span>
@@ -60,32 +58,30 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="relative">
               <button
                 onClick={() => setShowNotifMenu(!showNotifMenu)}
-                className="relative p-2 rounded-xl bg-slate-800/60 hover:bg-slate-700/80 border border-slate-700/50 text-slate-300 transition-colors"
+                className="relative p-2 rounded-full bg-[#1c1e54]/80 hover:bg-[#1c1e54] border border-[#a8c3de]/20 text-[#a8c3de] hover:text-white transition-colors"
                 aria-label="Notifications"
               >
-                <Bell className="w-5 h-5" />
+                <Bell className="w-4.5 h-4.5" />
                 {unreadCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-indigo-500 text-white text-[10px] font-bold flex items-center justify-center animate-pulse">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#ea2261] text-white text-[10px] font-bold font-tabular flex items-center justify-center animate-pulse">
                     {unreadCount}
                   </span>
                 )}
               </button>
 
-              {/* Dropdown Notifications */}
+              {/* Notifications Card */}
               {showNotifMenu && (
-                <div className="absolute right-0 mt-2 w-80 sm:w-96 glass-panel-glow rounded-2xl p-4 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                    <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                      <Bell className="w-4 h-4 text-indigo-400" />
-                      Genesis Notifications
+                <div className="absolute right-0 mt-2 w-80 sm:w-96 card-dashboard-mockup z-50 animate-in fade-in slide-in-from-top-2">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#e3e8ee]/10">
+                    <h4 className="font-heading-md text-sm text-white flex items-center gap-2">
+                      <Bell className="w-4 h-4 text-[#665efd]" />
+                      Genesis Feed Notifications
                     </h4>
-                    <span className="text-xs text-slate-400 font-medium">
-                      {unreadCount} new
-                    </span>
+                    <span className="pill-tag-soft font-tabular">{unreadCount} new</span>
                   </div>
-                  <div className="mt-3 space-y-2.5 max-h-80 overflow-y-auto pr-1">
+                  <div className="mt-3 space-y-2 max-h-80 overflow-y-auto pr-1">
                     {notifications.length === 0 ? (
-                      <p className="text-xs text-slate-400 py-4 text-center">No notifications yet.</p>
+                      <p className="text-xs text-[#64748d] py-4 text-center">No notifications yet.</p>
                     ) : (
                       notifications.map((notif) => (
                         <div
@@ -93,15 +89,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                           onClick={() => markNotificationRead(notif.id)}
                           className={`p-3 rounded-xl border text-xs cursor-pointer transition-all ${
                             notif.read
-                              ? 'bg-slate-900/40 border-slate-800/50 text-slate-400'
-                              : 'bg-indigo-950/30 border-indigo-500/30 text-slate-200'
+                              ? 'bg-[#0d253d]/50 border-[#e3e8ee]/10 text-[#64748d]'
+                              : 'bg-[#1c1e54]/80 border-[#533afd]/40 text-slate-200'
                           }`}
                         >
-                          <div className="flex items-center justify-between font-semibold mb-1">
-                            <span className="text-indigo-300">{notif.title}</span>
-                            <span className="text-[10px] text-slate-500">{notif.timestamp}</span>
+                          <div className="flex items-center justify-between font-medium mb-1">
+                            <span className="text-[#b9b9f9]">{notif.title}</span>
+                            <span className="text-[10px] text-[#64748d] font-tabular">{notif.timestamp}</span>
                           </div>
-                          <p className="text-slate-300 leading-relaxed">{notif.message}</p>
+                          <p className="text-slate-300 text-xs leading-relaxed">{notif.message}</p>
                         </div>
                       ))
                     )}
@@ -110,8 +106,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {/* Privacy Badge indicator */}
-            <div className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400">
+            {/* DPDP Compliance Tag */}
+            <div className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1c1e54]/60 border border-[#e3e8ee]/10 text-[11px] text-[#64748d]">
               <Shield className="w-3.5 h-3.5 text-emerald-400" />
               <span>DPDP Encrypted</span>
             </div>
@@ -119,19 +115,19 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </header>
 
-      {/* Bottom Floating Navigation Bar */}
-      <nav className="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-lg glass-panel rounded-2xl border border-slate-800/90 shadow-2xl p-1.5">
+      {/* Floating Bottom Pill Navigation Bar */}
+      <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-md bg-[#0d253d]/90 backdrop-blur-xl rounded-full border border-[#a8c3de]/20 shadow-2xl p-1.5">
         <div className="grid grid-cols-5 gap-1">
           <button
             onClick={() => setActiveTab('badge')}
-            className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-2 px-1 rounded-full transition-all ${
               activeTab === 'badge'
-                ? 'bg-gradient-to-b from-indigo-600/30 to-purple-600/20 text-indigo-300 border border-indigo-500/40'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                ? 'bg-[#533afd] text-white shadow-md shadow-[#533afd]/40'
+                : 'text-[#64748d] hover:text-slate-200'
             }`}
           >
-            <QrCode className="w-5 h-5 mb-0.5" />
-            <span className="text-[10px] font-semibold">My Badge</span>
+            <QrCode className="w-4.5 h-4.5 mb-0.5" />
+            <span className="text-[10px] font-medium">Badge</span>
           </button>
 
           <button
@@ -139,52 +135,50 @@ export const Navbar: React.FC<NavbarProps> = ({
               setActiveTab('scan');
               openScanner();
             }}
-            className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-2 px-1 rounded-full transition-all ${
               activeTab === 'scan'
-                ? 'bg-gradient-to-b from-indigo-600/30 to-purple-600/20 text-indigo-300 border border-indigo-500/40'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                ? 'bg-[#533afd] text-white shadow-md shadow-[#533afd]/40'
+                : 'text-[#64748d] hover:text-slate-200'
             }`}
           >
-            <div className="relative">
-              <Scan className="w-5 h-5 mb-0.5 text-indigo-400" />
-            </div>
-            <span className="text-[10px] font-semibold text-indigo-300">Scan</span>
+            <Scan className="w-4.5 h-4.5 mb-0.5" />
+            <span className="text-[10px] font-medium">Scan</span>
           </button>
 
           <button
             onClick={() => setActiveTab('connections')}
-            className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-2 px-1 rounded-full transition-all ${
               activeTab === 'connections'
-                ? 'bg-gradient-to-b from-indigo-600/30 to-purple-600/20 text-indigo-300 border border-indigo-500/40'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                ? 'bg-[#533afd] text-white shadow-md shadow-[#533afd]/40'
+                : 'text-[#64748d] hover:text-slate-200'
             }`}
           >
-            <Users className="w-5 h-5 mb-0.5" />
-            <span className="text-[10px] font-semibold">Contacts</span>
+            <Users className="w-4.5 h-4.5 mb-0.5" />
+            <span className="text-[10px] font-medium">Contacts</span>
           </button>
 
           <button
             onClick={() => setActiveTab('hub')}
-            className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-2 px-1 rounded-full transition-all ${
               activeTab === 'hub'
-                ? 'bg-gradient-to-b from-indigo-600/30 to-purple-600/20 text-indigo-300 border border-indigo-500/40'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                ? 'bg-[#533afd] text-white shadow-md shadow-[#533afd]/40'
+                : 'text-[#64748d] hover:text-slate-200'
             }`}
           >
-            <Compass className="w-5 h-5 mb-0.5" />
-            <span className="text-[10px] font-semibold">Genesis Hub</span>
+            <Compass className="w-4.5 h-4.5 mb-0.5" />
+            <span className="text-[10px] font-medium">Genesis Hub</span>
           </button>
 
           <button
             onClick={() => setActiveTab('profile')}
-            className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-2 px-1 rounded-full transition-all ${
               activeTab === 'profile'
-                ? 'bg-gradient-to-b from-indigo-600/30 to-purple-600/20 text-indigo-300 border border-indigo-500/40'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                ? 'bg-[#533afd] text-white shadow-md shadow-[#533afd]/40'
+                : 'text-[#64748d] hover:text-slate-200'
             }`}
           >
-            <User className="w-5 h-5 mb-0.5" />
-            <span className="text-[10px] font-semibold">Profile</span>
+            <User className="w-4.5 h-4.5 mb-0.5" />
+            <span className="text-[10px] font-medium">Profile</span>
           </button>
         </div>
       </nav>
