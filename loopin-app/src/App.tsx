@@ -53,10 +53,10 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-slate-100 selection:bg-indigo-500 selection:text-white relative">
-      {/* Background Decorative Mesh Gradients */}
-      <div className="fixed top-0 left-1/4 w-[450px] h-[450px] bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-10 right-10 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-[#f6f9fc] text-[#0d253d] selection:bg-[#533afd] selection:text-white relative">
+      {/* Background Decorative Light Mesh Gradients */}
+      <div className="fixed top-0 left-1/4 w-[450px] h-[450px] bg-[#533afd]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-10 right-10 w-[400px] h-[400px] bg-[#f96bee]/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Top Header & Floating Bottom Navbar */}
       <Navbar
