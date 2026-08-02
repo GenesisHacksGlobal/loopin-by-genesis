@@ -65,16 +65,16 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
   return (
     <div className="w-full pb-28 pt-2 px-4 space-y-6 max-w-2xl mx-auto animate-in fade-in duration-300">
-      {/* Header Profile Banner */}
+      {/* Header Profile Banner (Light card-dashboard-mockup) */}
       <div className="card-dashboard-mockup flex items-center space-x-4">
         <img
           src={user.avatar}
           alt={user.fullName}
-          className="w-16 h-16 rounded-full object-cover border-2 border-[#533afd]/40 shadow-lg"
+          className="w-16 h-16 rounded-full object-cover border-2 border-[#533afd]/30 shadow-md"
         />
         <div>
-          <h2 className="font-display-lg text-xl text-white font-light">{user.fullName}</h2>
-          <p className="font-body-md text-xs text-[#b9b9f9] font-medium">{user.roleTitle}</p>
+          <h2 className="font-display-lg text-xl text-[#0d253d] font-light">{user.fullName}</h2>
+          <p className="font-body-md text-xs text-[#533afd] font-semibold">{user.roleTitle}</p>
           <span className="text-[10px] text-[#64748d] block mt-0.5 font-tabular">
             Global Identity • {user.totalConnections} Connections
           </span>
@@ -84,14 +84,14 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
       <form onSubmit={handleSaveProfile} className="space-y-5">
         {/* Global Hacker Info (card-feature-light) */}
         <div className="card-feature-light space-y-4">
-          <h3 className="font-heading-md text-sm text-white font-light flex items-center gap-2 border-b border-[#e3e8ee]/10 pb-3">
+          <h3 className="font-heading-md text-sm text-[#0d253d] font-normal flex items-center gap-2 border-b border-[#e3e8ee] pb-3">
             <User className="w-4 h-4 text-[#533afd]" />
             Global Identity & Bio
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="space-y-1">
-              <label className="text-xs font-semibold text-slate-300">Full Name</label>
+              <label className="text-xs font-semibold text-[#0d253d]">Full Name</label>
               <input
                 type="text"
                 value={fullName}
@@ -100,7 +100,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-semibold text-slate-300">Role / Headline</label>
+              <label className="text-xs font-semibold text-[#0d253d]">Role / Headline</label>
               <input
                 type="text"
                 value={roleTitle}
@@ -111,7 +111,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-semibold text-slate-300">Bio</label>
+            <label className="text-xs font-semibold text-[#0d253d]">Bio</label>
             <textarea
               rows={2}
               value={bio}
@@ -122,7 +122,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
           {/* Core Tech Stack Tags */}
           <div className="space-y-2">
-            <label className="text-xs font-semibold text-slate-300 block">Core Tech Stack</label>
+            <label className="text-xs font-semibold text-[#0d253d] block">Core Tech Stack</label>
             <div className="flex items-center gap-2">
               <input
                 type="text"
@@ -153,7 +153,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                 >
                   {tech}
                   <button type="button" onClick={() => handleRemoveTech(tech)}>
-                    <X className="w-3 h-3 text-[#533afd] hover:text-white" />
+                    <X className="w-3 h-3 text-[#533afd] hover:text-[#0d253d]" />
                   </button>
                 </span>
               ))}
@@ -163,7 +163,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
         {/* Event-Scoped Pitch Box */}
         <div className="card-feature-light space-y-3">
-          <h3 className="font-heading-md text-sm text-white font-light flex items-center gap-2 border-b border-[#e3e8ee]/10 pb-3">
+          <h3 className="font-heading-md text-sm text-[#0d253d] font-normal flex items-center gap-2 border-b border-[#e3e8ee] pb-3">
             <Sparkles className="w-4 h-4 text-[#f96bee]" />
             Event-Scoped Pitch ("What I'm building / looking for")
           </h3>
@@ -208,7 +208,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
       {/* Account Settings & Regulatory Deletion */}
       <div className="card-feature-light space-y-3">
-        <h4 className="text-xs font-semibold text-[#a8c3de]">Account & Regulatory Compliance</h4>
+        <h4 className="text-xs font-semibold text-[#64748d]">Account & Regulatory Compliance</h4>
         <div className="flex items-center justify-between gap-3">
           <button
             type="button"
@@ -222,22 +222,22 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
           <button
             type="button"
             onClick={() => setShowDeleteConfirm(!showDeleteConfirm)}
-            className="flex-1 py-2.5 px-3 rounded-full bg-rose-950/30 border border-rose-500/30 text-rose-300 font-semibold text-xs flex items-center justify-center gap-2 hover:bg-rose-900/50 transition-colors"
+            className="flex-1 py-2.5 px-3 rounded-full bg-rose-50 border border-rose-200 text-rose-700 font-semibold text-xs flex items-center justify-center gap-2 hover:bg-rose-100 transition-colors"
           >
-            <Trash2 className="w-4 h-4 text-rose-400" />
+            <Trash2 className="w-4 h-4 text-rose-600" />
             <span>Delete Account</span>
           </button>
         </div>
 
         {/* Delete Confirmation */}
         {showDeleteConfirm && (
-          <div className="p-4 rounded-xl bg-rose-950/60 border border-rose-500/50 space-y-2 text-xs animate-in fade-in font-tabular">
-            <span className="text-white font-bold block">DPDP Act 2023 / GDPR Right to be Forgotten</span>
-            <p className="text-rose-200">
+          <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 space-y-2 text-xs animate-in fade-in font-tabular">
+            <span className="text-rose-900 font-bold block">DPDP Act 2023 / GDPR Right to be Forgotten</span>
+            <p className="text-rose-700">
               Permanently delete your profile and purge all personal records within 30 days.
             </p>
             {deletedMsg ? (
-              <span className="text-emerald-400 font-bold block">Account deletion requested. Purging data...</span>
+              <span className="text-emerald-700 font-bold block">Account deletion requested. Purging data...</span>
             ) : (
               <div className="flex items-center space-x-2 pt-1">
                 <button
@@ -250,7 +250,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowDeleteConfirm(false)}
-                  className="px-3 py-1.5 rounded-full bg-[#1c1e54] text-slate-300 font-semibold text-xs"
+                  className="px-3 py-1.5 rounded-full bg-slate-200 text-[#0d253d] font-semibold text-xs"
                 >
                   Cancel
                 </button>

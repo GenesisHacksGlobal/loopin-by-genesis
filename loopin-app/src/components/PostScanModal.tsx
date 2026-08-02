@@ -70,42 +70,42 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0b0f19]/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-lg card-dashboard-mockup relative overflow-hidden space-y-5 shadow-2xl border border-[#533afd]/40">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0d253d]/60 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="w-full max-w-lg card-dashboard-mockup relative overflow-hidden space-y-5 shadow-2xl border border-[#e3e8ee]">
         {/* Header Success Banner */}
-        <div className="flex items-center justify-between border-b border-[#e3e8ee]/10 pb-3">
+        <div className="flex items-center justify-between border-b border-[#e3e8ee] pb-3">
           <div className="flex items-center space-x-2">
-            <div className="p-2 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            <div className="p-2 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
               <CheckCircle2 className="w-5 h-5" />
             </div>
             <div>
-              <span className="pill-tag-soft bg-emerald-500/20 text-emerald-300 font-tabular">
+              <span className="pill-tag-soft bg-emerald-50 text-emerald-700 font-tabular">
                 Mutual Badge Exchange Verified
               </span>
-              <h3 className="font-heading-md text-base text-white font-light mt-0.5">Connection Saved to Directory</h3>
+              <h3 className="font-heading-md text-base text-[#0d253d] font-normal mt-0.5">Connection Saved to Directory</h3>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-[#1c1e54] text-[#64748d] hover:text-white transition-colors"
+            className="p-1.5 rounded-full hover:bg-slate-100 text-[#64748d] hover:text-[#0d253d] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Scanned Builder Profile Overview */}
-        <div className="p-4 rounded-xl bg-[#1c1e54]/50 border border-[#a8c3de]/15 flex items-center space-x-3">
+        <div className="p-4 rounded-xl bg-[#f6f9fc] border border-[#e3e8ee] flex items-center space-x-3">
           <img
             src={connection.avatar}
             alt={connection.fullName}
-            className="w-14 h-14 rounded-full object-cover border-2 border-[#533afd]/40 shadow-lg"
+            className="w-14 h-14 rounded-full object-cover border-2 border-[#533afd]/30 shadow-md"
           />
           <div className="flex-1 min-w-0">
-            <h4 className="font-heading-lg text-base text-white font-light truncate">{connection.fullName}</h4>
-            <p className="font-body-md text-xs text-[#b9b9f9] font-medium truncate">{connection.roleTitle}</p>
+            <h4 className="font-heading-lg text-base text-[#0d253d] font-normal truncate">{connection.fullName}</h4>
+            <p className="font-body-md text-xs text-[#533afd] font-semibold truncate">{connection.roleTitle}</p>
             {connection.pitch && (
-              <p className="font-body-md text-[11px] text-slate-300 italic truncate mt-0.5">
+              <p className="font-body-md text-[11px] text-[#273951] italic truncate mt-0.5">
                 "{connection.pitch}"
               </p>
             )}
@@ -115,12 +115,12 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
         {/* Private Encrypted Note Editor Form */}
         <form onSubmit={handleSaveNote} className="space-y-4 font-tabular">
           <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-slate-200 flex items-center justify-between">
+            <label className="text-xs font-semibold text-[#0d253d] flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <StickyNote className="w-3.5 h-3.5 text-[#533afd]" />
                 Private Encrypted Context Note
               </span>
-              <span className="text-[10px] text-emerald-400 flex items-center gap-1">
+              <span className="text-[10px] text-emerald-600 font-medium flex items-center gap-1">
                 <Lock className="w-3 h-3" /> Visible only to you
               </span>
             </label>
@@ -135,7 +135,7 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
 
           {/* Skill & Context Tags Selector */}
           <div className="space-y-2">
-            <label className="text-xs font-semibold text-slate-200 flex items-center justify-between">
+            <label className="text-xs font-semibold text-[#0d253d] flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <Tag className="w-3.5 h-3.5 text-[#f96bee]" />
                 Categorization Tags
@@ -154,8 +154,8 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
                     onClick={() => toggleTag(tag)}
                     className={`text-xs font-medium px-2.5 py-1 rounded-full transition-all border ${
                       isSelected
-                        ? 'bg-[#533afd] text-white border-[#533afd] shadow-sm'
-                        : 'bg-[#1c1e54]/60 text-[#a8c3de] border-[#a8c3de]/20 hover:text-white'
+                        ? 'bg-[#533afd] text-white border-[#533afd] shadow-xs'
+                        : 'bg-white text-[#273951] border-[#e3e8ee] hover:border-[#533afd]'
                     }`}
                   >
                     {tag}
@@ -202,9 +202,9 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
         </form>
 
         {/* DPDP Compliance Notice */}
-        <div className="pt-2 border-t border-[#e3e8ee]/10 text-center font-tabular">
+        <div className="pt-2 border-t border-[#e3e8ee] text-center font-tabular">
           <p className="text-[10px] text-[#64748d] flex items-center justify-center gap-1">
-            <ShieldCheck className="w-3 h-3 text-emerald-400" />
+            <ShieldCheck className="w-3 h-3 text-emerald-600" />
             Notes are encrypted locally. Zero cloud tracking of personal interactions.
           </p>
         </div>

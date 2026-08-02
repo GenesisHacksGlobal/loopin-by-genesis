@@ -52,7 +52,7 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 card-feature-light">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="font-display-lg text-xl text-white font-light tracking-tight">Saved Connections</h2>
+            <h2 className="font-display-lg text-xl text-[#0d253d] font-light tracking-tight">Saved Connections</h2>
             <span className="pill-tag-soft font-tabular">
               {connections.length} Contacts
             </span>
@@ -69,7 +69,7 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
             className="btn-secondary-pill text-xs py-1.5 px-3"
             title="Download CSV"
           >
-            <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-400" />
+            <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-600" />
             <span>CSV</span>
           </button>
 
@@ -78,7 +78,7 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
             className="btn-secondary-pill text-xs py-1.5 px-3"
             title="Download vCard"
           >
-            <Contact className="w-3.5 h-3.5 text-[#665efd]" />
+            <Contact className="w-3.5 h-3.5 text-[#533afd]" />
             <span>vCard</span>
           </button>
         </div>
@@ -91,9 +91,9 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search by name, role, private note, or #tag..."
-          className="w-full pl-10 pr-4 py-3 text-input-stripi text-xs rounded-full"
+          className="w-full pl-10 pr-4 py-3 text-input-stripi text-xs rounded-full shadow-xs"
         />
-        <Search className="w-4 h-4 text-[#a8c3de] absolute left-3.5 top-3.5" />
+        <Search className="w-4 h-4 text-[#64748d] absolute left-3.5 top-3.5" />
       </div>
 
       {/* Tag Filters Scrollable Ribbon */}
@@ -105,8 +105,8 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
             onClick={() => setActiveFilterTag(tag)}
             className={`text-xs font-medium px-3.5 py-1 rounded-full whitespace-nowrap transition-all border ${
               activeFilterTag === tag
-                ? 'bg-[#533afd] text-white border-[#533afd] shadow-md shadow-[#533afd]/30'
-                : 'bg-[#1c1e54]/60 text-[#a8c3de] border-[#a8c3de]/20 hover:text-white'
+                ? 'bg-[#533afd] text-white border-[#533afd] shadow-sm'
+                : 'bg-white text-[#273951] border-[#e3e8ee] hover:border-[#533afd]'
             }`}
           >
             {tag}
@@ -119,7 +119,7 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
         {filteredConnections.length === 0 ? (
           <div className="card-dashboard-mockup p-8 text-center space-y-3">
             <Users className="w-12 h-12 text-[#64748d] mx-auto" />
-            <h4 className="font-heading-md text-sm text-slate-300">No connections match your query</h4>
+            <h4 className="font-heading-md text-sm text-[#0d253d]">No connections match your query</h4>
             <p className="font-body-md text-xs text-[#64748d]">Scan a hacker's QR badge to save them into your directory.</p>
             <button
               onClick={openScanner}

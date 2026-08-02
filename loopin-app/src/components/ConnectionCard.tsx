@@ -34,7 +34,7 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
   return (
-    <div className="card-feature-light border border-[#e3e8ee]/15 hover:border-[#533afd]/40 transition-all space-y-3 relative group">
+    <div className="card-feature-light border border-[#e3e8ee] hover:border-[#533afd]/40 transition-all space-y-3 relative group">
       {/* Header Info */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center space-x-3">
@@ -44,8 +44,8 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
             className="w-12 h-12 rounded-full object-cover border border-[#533afd]/30 shadow-md"
           />
           <div>
-            <h3 className="font-heading-md text-base text-white font-light">{connection.fullName}</h3>
-            <p className="font-body-md text-xs text-[#b9b9f9] font-medium">{connection.roleTitle}</p>
+            <h3 className="font-heading-md text-base text-[#0d253d] font-normal">{connection.fullName}</h3>
+            <p className="font-body-md text-xs text-[#533afd] font-semibold">{connection.roleTitle}</p>
             <div className="flex items-center space-x-2 text-[10px] text-[#64748d] mt-0.5 font-tabular">
               <span>{connection.eventName}</span>
               <span>•</span>
@@ -61,7 +61,7 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
               href={connection.socialLinks.github}
               target="_blank"
               rel="noreferrer"
-              className="p-1.5 rounded-full bg-[#1c1e54] text-[#a8c3de] hover:text-white hover:bg-[#533afd] transition-colors"
+              className="p-1.5 rounded-full bg-[#f6f9fc] border border-[#e3e8ee] text-[#0d253d] hover:text-white hover:bg-[#533afd] transition-colors"
               title="GitHub"
             >
               <GithubIcon />
@@ -72,7 +72,7 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
               href={connection.socialLinks.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="p-1.5 rounded-full bg-[#1c1e54] text-[#a8c3de] hover:text-white hover:bg-[#533afd] transition-colors"
+              className="p-1.5 rounded-full bg-[#f6f9fc] border border-[#e3e8ee] text-[#0d253d] hover:text-white hover:bg-[#533afd] transition-colors"
               title="LinkedIn"
             >
               <LinkedinIcon />
@@ -83,7 +83,7 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
               href={connection.socialLinks.twitter}
               target="_blank"
               rel="noreferrer"
-              className="p-1.5 rounded-full bg-[#1c1e54] text-[#a8c3de] hover:text-white hover:bg-[#533afd] transition-colors"
+              className="p-1.5 rounded-full bg-[#f6f9fc] border border-[#e3e8ee] text-[#0d253d] hover:text-white hover:bg-[#533afd] transition-colors"
               title="X / Twitter"
             >
               <TwitterIcon />
@@ -94,28 +94,28 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
 
       {/* Pitch Quote */}
       {connection.pitch && (
-        <p className="font-body-md text-xs text-slate-300 italic px-3 py-1.5 rounded-lg bg-[#0d253d]/60 border border-[#e3e8ee]/10">
+        <p className="font-body-md text-xs text-[#273951] italic px-3 py-1.5 rounded-lg bg-[#f6f9fc] border border-[#e3e8ee]">
           "{connection.pitch}"
         </p>
       )}
 
       {/* Private Encrypted Note Block */}
-      <div className="p-3 rounded-xl bg-[#1c1e54]/50 border border-[#533afd]/20 space-y-1.5">
-        <div className="flex items-center justify-between text-[11px] text-[#b9b9f9]">
+      <div className="p-3 rounded-xl bg-[#f6f9fc] border border-[#533afd]/20 space-y-1.5">
+        <div className="flex items-center justify-between text-[11px] text-[#4434d4]">
           <span className="flex items-center gap-1.5 font-semibold">
-            <Lock className="w-3 h-3 text-emerald-400" />
+            <Lock className="w-3 h-3 text-emerald-600" />
             <StickyNote className="w-3 h-3 text-[#533afd]" />
             Private Encrypted Context Note
           </span>
           <button
             onClick={() => onEditNote(connection)}
-            className="flex items-center gap-1 text-[#665efd] hover:text-white transition-colors font-medium"
+            className="flex items-center gap-1 text-[#533afd] hover:text-[#4434d4] transition-colors font-semibold"
           >
             <Edit3 className="w-3 h-3" />
             <span>Edit Note</span>
           </button>
         </div>
-        <p className="font-body-md text-xs text-slate-200 leading-relaxed">
+        <p className="font-body-md text-xs text-[#0d253d] leading-relaxed">
           {connection.privateNote || 'No private notes saved yet. Click Edit to add context...'}
         </p>
       </div>
@@ -134,7 +134,7 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
         <div className="flex items-center space-x-2">
           {showConfirmDelete ? (
             <div className="flex items-center space-x-1.5 text-xs animate-in fade-in font-tabular">
-              <span className="text-rose-400 font-medium">Delete contact?</span>
+              <span className="text-rose-600 font-semibold">Delete contact?</span>
               <button
                 onClick={() => onDelete(connection.id)}
                 className="px-2 py-0.5 rounded-full bg-rose-600 text-white font-bold text-[10px]"
@@ -143,7 +143,7 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
               </button>
               <button
                 onClick={() => setShowConfirmDelete(false)}
-                className="px-2 py-0.5 rounded-full bg-[#1c1e54] text-slate-300 text-[10px]"
+                className="px-2 py-0.5 rounded-full bg-slate-100 text-[#0d253d] text-[10px]"
               >
                 No
               </button>
@@ -151,14 +151,14 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
           ) : (
             <button
               onClick={() => setShowConfirmDelete(true)}
-              className="p-1.5 rounded-full hover:bg-rose-950/40 text-[#64748d] hover:text-rose-400 transition-colors"
+              className="p-1.5 rounded-full hover:bg-rose-50 text-[#64748d] hover:text-rose-600 transition-colors"
               title="Delete connection"
             >
               <Trash2 className="w-3.5 h-3.5" />
             </button>
           )}
 
-          <div className="flex items-center gap-1 text-[10px] text-emerald-400 font-tabular">
+          <div className="flex items-center gap-1 text-[10px] text-emerald-600 font-tabular font-medium">
             <ShieldCheck className="w-3 h-3" />
             <span>Verified Exchange</span>
           </div>

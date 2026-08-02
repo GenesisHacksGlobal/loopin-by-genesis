@@ -77,16 +77,16 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0b0f19]/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-lg card-dashboard-mockup relative overflow-hidden space-y-4 shadow-2xl border border-[#533afd]/40">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0d253d]/60 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="w-full max-w-lg card-dashboard-mockup relative overflow-hidden space-y-4 shadow-2xl border border-[#e3e8ee]">
         {/* Header Bar */}
-        <div className="flex items-center justify-between border-b border-[#e3e8ee]/10 pb-3">
+        <div className="flex items-center justify-between border-b border-[#e3e8ee] pb-3">
           <div className="flex items-center space-x-2">
             <div className="p-2 rounded-full bg-[#533afd] text-white">
               <Camera className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-heading-md text-base text-white font-light">QR Scanner Viewfinder</h3>
+              <h3 className="font-heading-md text-base text-[#0d253d] font-normal">QR Scanner Viewfinder</h3>
               <p className="font-body-md text-[11px] text-[#64748d] font-tabular">
                 Scope: {currentEventName} • SLA &lt; 400ms
               </p>
@@ -95,20 +95,20 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-[#1c1e54] text-[#64748d] hover:text-white transition-colors"
+            className="p-1.5 rounded-full hover:bg-slate-100 text-[#64748d] hover:text-[#0d253d] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab Switcher: Camera / Web Sandbox */}
-        <div className="grid grid-cols-2 gap-1 p-1 rounded-full bg-[#0d253d] border border-[#a8c3de]/20 font-tabular text-xs">
+        <div className="grid grid-cols-2 gap-1 p-1 rounded-full bg-[#f6f9fc] border border-[#e3e8ee] font-tabular text-xs">
           <button
             onClick={() => setActiveTab('camera')}
             className={`py-1.5 rounded-full font-medium transition-all ${
               activeTab === 'camera'
                 ? 'bg-[#533afd] text-white shadow-md'
-                : 'text-[#64748d] hover:text-slate-200'
+                : 'text-[#64748d] hover:text-[#0d253d]'
             }`}
           >
             Native Camera Feed
@@ -118,7 +118,7 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
             className={`py-1.5 rounded-full font-medium transition-all ${
               activeTab === 'sandbox'
                 ? 'bg-[#533afd] text-white shadow-md'
-                : 'text-[#64748d] hover:text-slate-200'
+                : 'text-[#64748d] hover:text-[#0d253d]'
             }`}
           >
             Web Simulator Sandbox
@@ -127,7 +127,7 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
 
         {/* Camera Tab View */}
         {activeTab === 'camera' && (
-          <div className="relative h-64 rounded-2xl bg-[#0b0f19] border-2 border-dashed border-[#533afd]/40 flex flex-col items-center justify-center p-4 text-center overflow-hidden">
+          <div className="relative h-64 rounded-2xl bg-slate-900 border-2 border-dashed border-[#533afd]/40 flex flex-col items-center justify-center p-4 text-center overflow-hidden">
             {/* Animated Laser Scanning Line */}
             <div className="absolute left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent animate-scan-line shadow-lg shadow-emerald-400/50 z-20" />
 
@@ -135,7 +135,7 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
               <Camera className="w-10 h-10 text-[#533afd] mx-auto animate-pulse" />
               <div>
                 <p className="font-heading-md text-sm text-slate-200 font-light">Align Badge QR in Camera Framing</p>
-                <p className="font-body-md text-xs text-[#64748d] mt-1 font-tabular">
+                <p className="font-body-md text-xs text-slate-400 mt-1 font-tabular">
                   Camera hardware bridge active. For instant browser testing, switch to the Simulator Sandbox tab above.
                 </p>
               </div>
@@ -146,8 +146,8 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
         {/* Web Sandbox Simulator Tab View */}
         {activeTab === 'sandbox' && (
           <div className="space-y-3">
-            <div className="flex items-center justify-between text-xs text-[#b9b9f9] font-tabular">
-              <span className="flex items-center gap-1">
+            <div className="flex items-center justify-between text-xs text-[#533afd] font-tabular">
+              <span className="flex items-center gap-1 font-medium">
                 <Sparkles className="w-3.5 h-3.5 text-[#533afd]" />
                 Simulate Scanning Active Event Attendees
               </span>
@@ -158,17 +158,17 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
               {mockBuilders.map((builder) => (
                 <div
                   key={builder.id}
-                  className="p-3 rounded-xl bg-[#1c1e54]/60 border border-[#a8c3de]/15 hover:border-[#533afd]/60 transition-all flex items-center justify-between gap-3 group"
+                  className="p-3 rounded-xl bg-[#f6f9fc] border border-[#e3e8ee] hover:border-[#533afd]/60 transition-all flex items-center justify-between gap-3 group"
                 >
                   <div className="flex items-center space-x-3 min-w-0">
                     <img
                       src={builder.avatar}
                       alt={builder.fullName}
-                      className="w-10 h-10 rounded-full object-cover border border-[#533afd]/40"
+                      className="w-10 h-10 rounded-full object-cover border border-[#533afd]/30"
                     />
                     <div className="min-w-0">
-                      <h4 className="font-heading-md text-xs text-white font-medium truncate">{builder.fullName}</h4>
-                      <p className="font-body-md text-[11px] text-[#b9b9f9] truncate">{builder.roleTitle}</p>
+                      <h4 className="font-heading-md text-xs text-[#0d253d] font-semibold truncate">{builder.fullName}</h4>
+                      <p className="font-body-md text-[11px] text-[#533afd] truncate">{builder.roleTitle}</p>
                     </div>
                   </div>
 
@@ -186,8 +186,8 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
         )}
 
         {/* Footer Note */}
-        <div className="pt-2 border-t border-[#e3e8ee]/10 flex items-center justify-between text-[11px] text-[#64748d] font-tabular">
-          <span className="flex items-center gap-1 text-emerald-400">
+        <div className="pt-2 border-t border-[#e3e8ee] flex items-center justify-between text-[11px] text-[#64748d] font-tabular">
+          <span className="flex items-center gap-1 text-emerald-600 font-medium">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Opaque Signed Payload • No Raw PII</span>
           </span>

@@ -71,14 +71,14 @@ export const SocialToggleGroup: React.FC<SocialToggleGroupProps> = ({
 
   return (
     <div className="card-feature-light space-y-4">
-      <div className="flex items-center justify-between border-b border-[#e3e8ee]/10 pb-3">
+      <div className="flex items-center justify-between border-b border-[#e3e8ee] pb-3">
         <div>
-          <h4 className="font-heading-md text-sm text-white font-light flex items-center gap-2">
-            <Shield className="w-4 h-4 text-emerald-400" />
+          <h4 className="font-heading-md text-sm text-[#0d253d] font-normal flex items-center gap-2">
+            <Shield className="w-4 h-4 text-emerald-600" />
             Granular Social Privacy Controls
           </h4>
           <p className="font-body-md text-xs text-[#64748d] mt-0.5">
-            Privacy default is <strong className="text-amber-400 font-medium">OFF</strong>. Only enabled links transmit in scanned QR badges.
+            Privacy default is <strong className="text-amber-600 font-semibold">OFF</strong>. Only enabled links transmit in scanned QR badges.
           </p>
         </div>
       </div>
@@ -93,14 +93,14 @@ export const SocialToggleGroup: React.FC<SocialToggleGroupProps> = ({
               key={key}
               className={`p-3 rounded-xl border transition-all ${
                 isVisible
-                  ? 'bg-[#1c1e54]/50 border-[#533afd]/40'
-                  : 'bg-[#0d253d]/60 border-[#e3e8ee]/10 opacity-80'
+                  ? 'bg-[#f6f9fc] border-[#533afd]/40'
+                  : 'bg-white border-[#e3e8ee] opacity-80'
               }`}
             >
               <div className="flex items-center justify-between gap-2 mb-2">
                 <div className="flex items-center gap-2">
                   <Icon className={`w-4 h-4 ${isVisible ? 'text-[#533afd]' : 'text-[#64748d]'}`} />
-                  <span className="text-xs font-semibold text-slate-200">{label}</span>
+                  <span className="text-xs font-semibold text-[#0d253d]">{label}</span>
                 </div>
 
                 <button
@@ -108,18 +108,18 @@ export const SocialToggleGroup: React.FC<SocialToggleGroupProps> = ({
                   onClick={() => onToggle(key)}
                   className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold transition-all ${
                     isVisible
-                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                      : 'bg-[#1c1e54] text-[#64748d] border border-[#a8c3de]/20'
+                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-300'
+                      : 'bg-slate-100 text-[#64748d] border border-[#a8c3de]/40'
                   }`}
                 >
                   {isVisible ? (
                     <>
-                      <Eye className="w-3 h-3 text-emerald-400" />
+                      <Eye className="w-3 h-3 text-emerald-600" />
                       <span>Visible</span>
                     </>
                   ) : (
                     <>
-                      <EyeOff className="w-3 h-3 text-amber-400" />
+                      <EyeOff className="w-3 h-3 text-amber-600" />
                       <span>Hidden (OFF)</span>
                     </>
                   )}

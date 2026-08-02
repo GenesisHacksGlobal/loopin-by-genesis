@@ -11,7 +11,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const [isRegistered, setIsRegistered] = useState(false);
 
   return (
-    <div className="card-pricing-featured overflow-hidden border border-[#533afd]/40 hover:border-[#533afd] transition-all space-y-0 group">
+    <div className="card-pricing-featured overflow-hidden border border-[#533afd]/40 hover:border-[#533afd] transition-all space-y-0 group shadow-lg">
       {/* Event Header Banner */}
       <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
         <img
@@ -63,7 +63,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
 
         {/* Accordion Agenda Toggle */}
         {event.agenda && event.agenda.length > 0 && (
-          <div className="space-y-2 pt-1 border-t border-[#e3e8ee]/10 font-tabular">
+          <div className="space-y-2 pt-1 border-t border-white/10 font-tabular">
             <button
               onClick={() => setShowAgenda(!showAgenda)}
               className="w-full flex items-center justify-between text-xs font-semibold text-[#b9b9f9] hover:text-white transition-colors"

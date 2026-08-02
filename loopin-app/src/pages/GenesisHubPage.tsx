@@ -11,19 +11,19 @@ interface GenesisHubPageProps {
 export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) => {
   return (
     <div className="w-full pb-28 pt-2 px-4 space-y-6 max-w-2xl mx-auto animate-in fade-in duration-300">
-      {/* Genesis Hub Banner (card-dashboard-mockup) */}
+      {/* Genesis Hub Banner (card-dashboard-mockup light) */}
       <div className="card-dashboard-mockup relative overflow-hidden space-y-4">
         <div className="flex items-center space-x-2">
-          <div className="p-2 rounded-full bg-[#533afd]/30 border border-[#533afd]/40 text-[#b9b9f9]">
+          <div className="p-2 rounded-full bg-[#533afd]/10 border border-[#533afd]/30 text-[#533afd]">
             <Compass className="w-5 h-5" />
           </div>
           <div>
             <span className="pill-tag-soft">Genesis Ecosystem Portal</span>
-            <h2 className="font-display-lg text-2xl text-white font-light tracking-tight">Genesis Direct Feed</h2>
+            <h2 className="font-display-lg text-2xl text-[#0d253d] font-light tracking-tight">Genesis Direct Feed</h2>
           </div>
         </div>
 
-        <p className="font-body-md text-xs text-[#a8c3de] leading-relaxed">
+        <p className="font-body-md text-xs text-[#64748d] leading-relaxed">
           Bridging discrete offline hackathons and meetups into a unified digital builder network. Discover upcoming events and track ecosystem credentials.
         </p>
       </div>
@@ -41,7 +41,7 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
         </div>
 
         <div className="grid grid-cols-2 gap-3 pt-1 font-tabular">
-          <div className="p-3 rounded-xl bg-white/80 border border-[#9b6829]/20 shadow-sm flex items-center space-x-3">
+          <div className="p-3 rounded-xl bg-white/90 border border-[#9b6829]/20 shadow-xs flex items-center space-x-3">
             <Trophy className="w-6 h-6 text-[#9b6829] flex-shrink-0" />
             <div>
               <span className="text-lg font-bold text-[#0d253d] block">{user.badges.length} Unlocked</span>
@@ -49,7 +49,7 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-white/80 border border-[#ea2261]/20 shadow-sm flex items-center space-x-3">
+          <div className="p-3 rounded-xl bg-white/90 border border-[#ea2261]/20 shadow-xs flex items-center space-x-3">
             <Flame className="w-6 h-6 text-[#ea2261] flex-shrink-0" />
             <div>
               <span className="text-lg font-bold text-[#0d253d] block">{user.totalConnections} Builders</span>
@@ -61,7 +61,7 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
 
       {/* Earnable Community Badges Showcase */}
       <div className="space-y-3">
-        <h3 className="font-display-md text-lg text-white font-light flex items-center gap-2">
+        <h3 className="font-display-md text-lg text-[#0d253d] font-light flex items-center gap-2">
           <Award className="w-5 h-5 text-[#f96bee]" />
           Verified Hacker Credentials
         </h3>
@@ -70,17 +70,17 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
           {user.badges.map((b) => (
             <div
               key={b.id}
-              className="card-feature-light p-3.5 border border-[#e3e8ee]/15 hover:border-[#533afd]/40 transition-colors space-y-1.5"
+              className="card-feature-light p-3.5 border border-[#e3e8ee] hover:border-[#533afd]/40 transition-colors space-y-1.5"
             >
               <div className="flex items-center justify-between">
-                <span className="p-1.5 rounded-full bg-[#533afd]/20 text-[#b9b9f9]">
+                <span className="p-1.5 rounded-full bg-[#533afd]/10 text-[#533afd]">
                   <Sparkles className="w-4 h-4" />
                 </span>
-                <span className="pill-tag-soft bg-emerald-500/20 text-emerald-300 font-tabular">
+                <span className="pill-tag-soft bg-emerald-50 text-emerald-700 font-tabular">
                   Verified
                 </span>
               </div>
-              <h4 className="font-heading-md text-xs font-semibold text-white">{b.name}</h4>
+              <h4 className="font-heading-md text-xs font-semibold text-[#0d253d]">{b.name}</h4>
               <p className="font-body-md text-[11px] text-[#64748d] leading-tight">{b.description}</p>
             </div>
           ))}
@@ -90,7 +90,7 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
       {/* Genesis Events Feed */}
       <div className="space-y-4">
         <div className="flex items-center justify-between font-tabular">
-          <h3 className="font-display-md text-lg text-white font-light flex items-center gap-2">
+          <h3 className="font-display-md text-lg text-[#0d253d] font-light flex items-center gap-2">
             <Calendar className="w-5 h-5 text-[#533afd]" />
             Official Hackathons & Workshops
           </h3>
