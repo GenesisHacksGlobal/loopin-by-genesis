@@ -56,3 +56,16 @@ Central logbook for documenting non-trivial errors, build failures, configuratio
 - **Root Cause:** Property name mismatch between `ConnectionCard` type interface (`eventName`, `socialLinks`, string `timestamp`) and component references.
 - **Solution / Fix:** Aligned `ConnectionCard.tsx` and `QRScannerModal.tsx` to use `connection.eventName`, `connection.socialLinks`, and `new Date().toISOString()`.
 - **Logged By:** Antigravity AI
+
+---
+
+### [2026-08-02] - Linter Audit & Light Theme Alignment Verification
+
+- **Module / Component:** `oxlint` & TypeScript Build Pipeline (`tsc -b`)
+- **Error Description / Stack Trace:**
+  ```text
+  Found 0 warnings and 0 errors across 21 source files with 104 rules.
+  ```
+- **Root Cause:** Audit request to ensure all linters, TypeScript checks, and light-theme design tokens compile cleanly.
+- **Solution / Fix:** Updated outer App wrapper to `#f6f9fc`, ran `oxlint` (0 warnings, 0 errors), and confirmed production build (`built in 406ms`).
+- **Logged By:** Antigravity AI
