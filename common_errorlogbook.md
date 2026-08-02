@@ -41,3 +41,18 @@ Central logbook for documenting non-trivial errors, build failures, configuratio
 - **Root Cause:** Brand icons (`Github`, `Linkedin`, `Twitter`) are deprecated or named differently in modern `lucide-react` releases.
 - **Solution / Fix:** Built dedicated, sleek SVG social brand icons in `SocialToggleGroup.tsx` for GitHub, LinkedIn, X/Twitter, Discord, Globe, and Instagram.
 - **Logged By:** Antigravity AI
+
+---
+
+### [2026-08-02] - ConnectionCard Type Property Mismatch
+
+- **Module / Component:** `ConnectionCard.tsx` & `QRScannerModal.tsx`
+- **Error Description / Stack Trace:**
+  ```text
+  error TS2339: Property 'scannedEventName' does not exist on type 'ConnectionCard'.
+  error TS2339: Property 'socials' does not exist on type 'ConnectionCard'.
+  error TS2322: Type 'number' is not assignable to type 'string' for timestamp.
+  ```
+- **Root Cause:** Property name mismatch between `ConnectionCard` type interface (`eventName`, `socialLinks`, string `timestamp`) and component references.
+- **Solution / Fix:** Aligned `ConnectionCard.tsx` and `QRScannerModal.tsx` to use `connection.eventName`, `connection.socialLinks`, and `new Date().toISOString()`.
+- **Logged By:** Antigravity AI

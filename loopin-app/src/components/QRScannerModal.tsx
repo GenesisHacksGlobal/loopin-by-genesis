@@ -23,15 +23,16 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
   const mockBuilders: ConnectionCard[] = [
     {
       id: `conn_${Date.now()}_1`,
+      userId: 'usr_sarah_1',
       fullName: 'Sarah Chen',
       roleTitle: 'Senior ZK Cryptographer',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
-      scannedEventId: 'evt_genesis_2026',
-      scannedEventName: currentEventName,
-      timestamp: Date.now(),
+      eventId: 'evt_genesis_2026',
+      eventName: currentEventName,
+      timestamp: new Date().toISOString(),
       pitch: 'Building Circom circuits for private identity on Ethereum. Seeking Rust auditors!',
       tags: ['#ZK-SNARKs', '#Circom', '#Rust', '#FoundingTeammate'],
-      socials: {
+      socialLinks: {
         github: 'https://github.com/sarahchen-zk',
         linkedin: 'https://linkedin.com/in/sarahchen',
         twitter: 'https://x.com/sarahchen_zk',
@@ -40,15 +41,16 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
     },
     {
       id: `conn_${Date.now()}_2`,
+      userId: 'usr_vikram_2',
       fullName: 'Vikram Malhotra',
       roleTitle: 'Solana Infra Engineer & Core Contributor',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
-      scannedEventId: 'evt_genesis_2026',
-      scannedEventName: currentEventName,
-      timestamp: Date.now(),
+      eventId: 'evt_genesis_2026',
+      eventName: currentEventName,
+      timestamp: new Date().toISOString(),
       pitch: 'High-throughput RPC nodes & gRPC streaming services. Looking for Solana founders.',
       tags: ['#Solana', '#gRPC', '#Rust', '#Infrastructure'],
-      socials: {
+      socialLinks: {
         github: 'https://github.com/vmalhotra-sol',
         twitter: 'https://x.com/vmalhotra_sol',
         portfolio: 'https://vikram.dev',
@@ -57,15 +59,16 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({
     },
     {
       id: `conn_${Date.now()}_3`,
+      userId: 'usr_elena_3',
       fullName: 'Elena Rostova',
       roleTitle: 'AI Research Lead & LLM Specialist',
       avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150',
-      scannedEventId: 'evt_genesis_2026',
-      scannedEventName: currentEventName,
-      timestamp: Date.now(),
+      eventId: 'evt_genesis_2026',
+      eventName: currentEventName,
+      timestamp: new Date().toISOString(),
       pitch: 'Autonomous AI agents for smart contract fuzzing. Need Web3 frontend dev!',
       tags: ['#AI/ML', '#Python', '#PyTorch', '#SmartContracts'],
-      socials: {
+      socialLinks: {
         github: 'https://github.com/elena-ai',
         linkedin: 'https://linkedin.com/in/elena-rostova',
       },

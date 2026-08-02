@@ -47,7 +47,7 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
             <h3 className="font-heading-md text-base text-white font-light">{connection.fullName}</h3>
             <p className="font-body-md text-xs text-[#b9b9f9] font-medium">{connection.roleTitle}</p>
             <div className="flex items-center space-x-2 text-[10px] text-[#64748d] mt-0.5 font-tabular">
-              <span>{connection.scannedEventName}</span>
+              <span>{connection.eventName}</span>
               <span>•</span>
               <span>{new Date(connection.timestamp).toLocaleDateString()}</span>
             </div>
@@ -56,9 +56,9 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
 
         {/* Social Quick Links */}
         <div className="flex items-center space-x-1.5">
-          {connection.socials.github && (
+          {connection.socialLinks?.github && (
             <a
-              href={connection.socials.github}
+              href={connection.socialLinks.github}
               target="_blank"
               rel="noreferrer"
               className="p-1.5 rounded-full bg-[#1c1e54] text-[#a8c3de] hover:text-white hover:bg-[#533afd] transition-colors"
@@ -67,9 +67,9 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
               <GithubIcon />
             </a>
           )}
-          {connection.socials.linkedin && (
+          {connection.socialLinks?.linkedin && (
             <a
-              href={connection.socials.linkedin}
+              href={connection.socialLinks.linkedin}
               target="_blank"
               rel="noreferrer"
               className="p-1.5 rounded-full bg-[#1c1e54] text-[#a8c3de] hover:text-white hover:bg-[#533afd] transition-colors"
@@ -78,9 +78,9 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
               <LinkedinIcon />
             </a>
           )}
-          {connection.socials.twitter && (
+          {connection.socialLinks?.twitter && (
             <a
-              href={connection.socials.twitter}
+              href={connection.socialLinks.twitter}
               target="_blank"
               rel="noreferrer"
               className="p-1.5 rounded-full bg-[#1c1e54] text-[#a8c3de] hover:text-white hover:bg-[#533afd] transition-colors"
