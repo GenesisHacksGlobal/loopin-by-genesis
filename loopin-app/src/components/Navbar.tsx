@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* DPDP Compliance Tag */}
             <div className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f6f9fc] border border-[#e3e8ee] text-[11px] text-[#0d253d]">
               <Shield className="w-3.5 h-3.5 text-emerald-600" />
-              <span>DPDP Encrypted</span>
+              <span>DPDP Compliant</span>
             </div>
           </div>
         </div>

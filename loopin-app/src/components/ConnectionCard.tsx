@@ -99,13 +99,13 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
         </p>
       )}
 
-      {/* Private Encrypted Note Block */}
+      {/* Private Note Block */}
       <div className="p-3 rounded-xl bg-[#f6f9fc] border border-[#533afd]/20 space-y-1.5">
         <div className="flex items-center justify-between text-[11px] text-[#4434d4]">
           <span className="flex items-center gap-1.5 font-semibold">
             <Lock className="w-3 h-3 text-emerald-600" />
             <StickyNote className="w-3 h-3 text-[#533afd]" />
-            Private Encrypted Context Note
+            Private Context Note
           </span>
           <button
             onClick={() => onEditNote(connection)}

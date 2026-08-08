@@ -58,7 +58,7 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
             </span>
           </div>
           <p className="font-body-md text-xs text-[#64748d] mt-0.5 flex items-center gap-1 font-tabular">
-            <Lock className="w-3 h-3 text-[#533afd]" /> Private encrypted notes & tags
+            <Lock className="w-3 h-3 text-[#533afd]" /> Private notes & tags (local only)
           </p>
         </div>
 

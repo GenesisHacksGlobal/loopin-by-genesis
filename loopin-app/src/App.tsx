@@ -42,8 +42,17 @@ export function App() {
 
   const handleScanSuccess = (newCard: ConnectionCardType) => {
     setIsScannerOpen(false);
-    addConnection(newCard);
-    setScannedConnection(newCard);
+    
+    const existingConnection = connections.find(
+      (c) => c.userId === newCard.userId && c.eventId === newCard.eventId
+    );
+
+    if (existingConnection) {
+      setScannedConnection(existingConnection);
+    } else {
+      addConnection(newCard);
+      setScannedConnection(newCard);
+    }
   };
 
   const handleSavePostScanNote = (id: string, note: string, tags: string[]) => {
@@ -88,7 +97,12 @@ export function App() {
         )}
 
         {activeTab === 'hub' && (
-          <GenesisHubPage events={events} user={userProfile} />
+          <GenesisHubPage 
+            events={events} 
+            user={userProfile} 
+            notifications={notifications}
+            markNotificationRead={markNotificationRead}
+          />
         )}
 
         {activeTab === 'profile' && (
@@ -109,7 +123,7 @@ export function App() {
         currentEventName={currentEvent.name}
       />
 
-      {/* Post Scan Mutual Exchange & Encrypted Note Modal */}
+      {/* Post Scan Mutual Exchange & Private Note Modal */}
       <PostScanModal
         connection={scannedConnection || editingConnectionNote}
         onClose={() => {

@@ -126,7 +126,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onLoginSuccess }) => {
             <span>Zero Password Overhead & DPDP Act 2023 Compliant</span>
           </div>
           <p className="text-[10px] text-[#64748d]">
-            Encrypted session tokens automatically refreshed per event scope.
+            Session tokens automatically refreshed per event scope.
           </p>
         </div>
       </div>
