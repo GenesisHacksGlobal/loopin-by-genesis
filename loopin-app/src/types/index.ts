@@ -71,7 +71,7 @@ export interface ConnectionCard {
   eventName: string;
   timestamp: string;
   tags: string[];
-  privateNote: string; // Encrypted locally per user
+  privateNote: string; // Stored locally per user
   socialLinks: Partial<SocialLinks>;
 }
 

@@ -1,14 +1,18 @@
 import React from 'react';
-import { Compass, Award, Calendar, Sparkles, Trophy, Flame } from 'lucide-react';
-import type { GenesisEventItem, UserProfile } from '../types';
+import { Compass, Award, Calendar, Sparkles, Trophy, Flame, Bell, CheckCircle2 } from 'lucide-react';
+import type { GenesisEventItem, UserProfile, GenesisNotification } from '../types';
 import { EventCard } from '../components/EventCard';
 
 interface GenesisHubPageProps {
   events: GenesisEventItem[];
   user: UserProfile;
+  notifications: GenesisNotification[];
+  markNotificationRead: (id: string) => void;
 }
 
-export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) => {
+export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user, notifications, markNotificationRead }) => {
+  const unreadCount = notifications.filter(n => !n.read).length;
+
   return (
     <div className="w-full pb-28 pt-2 px-4 space-y-6 max-w-2xl mx-auto animate-in fade-in duration-300">
       {/* Genesis Hub Banner (card-dashboard-mockup light) */}
@@ -100,6 +104,60 @@ export const GenesisHubPage: React.FC<GenesisHubPageProps> = ({ events, user }) 
         <div className="space-y-4">
           {events.map((eventItem) => (
             <EventCard key={eventItem.id} event={eventItem} />
+          ))}
+        </div>
+      </div>
+      {/* Notifications Feed */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between font-tabular">
+          <h3 className="font-display-md text-lg text-[#0d253d] font-light flex items-center gap-2">
+            <Bell className="w-5 h-5 text-[#533afd]" />
+            Recent Updates
+          </h3>
+          {unreadCount > 0 && (
+            <span className="pill-tag-soft bg-rose-50 text-rose-600 border border-rose-200">
+              {unreadCount} New
+            </span>
+          )}
+        </div>
+
+        <div className="space-y-3">
+          {notifications.map((notif) => (
+            <div 
+              key={notif.id} 
+              className={`p-4 rounded-2xl border transition-all ${
+                notif.read 
+                  ? 'bg-white/60 border-[#e3e8ee] opacity-75' 
+                  : 'bg-white border-[#533afd]/40 shadow-sm relative overflow-hidden'
+              }`}
+            >
+              {/* Optional: subtle side accent for unread items */}
+              {!notif.read && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#533afd]" />}
+              
+              <div className="flex items-start justify-between gap-3 pl-1">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <h4 className={`font-heading-md text-sm ${notif.read ? 'text-[#0d253d]/80' : 'text-[#0d253d] font-semibold'}`}>
+                      {notif.title}
+                    </h4>
+                  </div>
+                  <p className="font-body-md text-xs text-[#64748d] leading-relaxed">{notif.message}</p>
+                  <div className="font-tabular text-[10px] text-[#64748d] pt-1">
+                    {notif.timestamp} • {notif.type.toUpperCase()}
+                  </div>
+                </div>
+                
+                {!notif.read && (
+                  <button 
+                    onClick={() => markNotificationRead(notif.id)}
+                    className="p-1.5 rounded-full hover:bg-[#533afd]/10 text-[#64748d] hover:text-[#533afd] transition-colors flex-shrink-0"
+                    title="Mark as read"
+                  >
+                    <CheckCircle2 className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </div>

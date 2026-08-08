@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { UserProfile, ConnectionCard, GenesisEventItem, GenesisNotification, EventScope, SocialVisibility } from '../types';
-import { initialActiveUser, currentEventScope, initialConnections, initialGenesisEvents, initialNotifications } from '../services/initialData';
+import { initialActiveUser, currentEventScope, initialConnections } from '../services/initialData';
+import { getEvents, getNotifications } from '../services/api';
 
 const LOCAL_STORAGE_KEY_USER = 'loopin_user_profile';
 const LOCAL_STORAGE_KEY_CONNECTIONS = 'loopin_connections';
@@ -25,12 +26,22 @@ export function useAppStore() {
     return saved ? JSON.parse(saved) : initialConnections;
   });
 
-  const [events] = useState<GenesisEventItem[]>(initialGenesisEvents);
+  const [events, setEvents] = useState<GenesisEventItem[]>([]);
 
   const [notifications, setNotifications] = useState<GenesisNotification[]>(() => {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY_NOTIFS);
-    return saved ? JSON.parse(saved) : initialNotifications;
+    return saved ? JSON.parse(saved) : [];
   });
+
+  // Fetch initial async data
+  useEffect(() => {
+    getEvents().then(setEvents);
+
+    const savedNotifs = localStorage.getItem(LOCAL_STORAGE_KEY_NOTIFS);
+    if (!savedNotifs || savedNotifs === '[]') {
+      getNotifications().then(setNotifications);
+    }
+  }, []);
 
   const [activeTab, setActiveTab] = useState<'badge' | 'scan' | 'connections' | 'hub' | 'profile'>('badge');
   const [isScannerOpen, setIsScannerOpen] = useState<boolean>(false);

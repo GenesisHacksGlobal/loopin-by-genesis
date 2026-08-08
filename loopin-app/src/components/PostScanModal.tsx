@@ -112,13 +112,13 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
           </div>
         </div>
 
-        {/* Private Encrypted Note Editor Form */}
+        {/* Private Note Editor Form */}
         <form onSubmit={handleSaveNote} className="space-y-4 font-tabular">
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-[#0d253d] flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <StickyNote className="w-3.5 h-3.5 text-[#533afd]" />
-                Private Encrypted Context Note
+                Private Context Note
               </span>
               <span className="text-[10px] text-emerald-600 font-medium flex items-center gap-1">
                 <Lock className="w-3 h-3" /> Visible only to you
@@ -196,7 +196,7 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
               className="w-full py-3.5 btn-primary-pill text-xs font-semibold shadow-lg flex items-center justify-center space-x-2"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Save Encrypted Note to Contacts</span>
+              <span>Save Private Note to Contacts</span>
             </button>
           </div>
         </form>
@@ -205,7 +205,7 @@ export const PostScanModal: React.FC<PostScanModalProps> = ({
         <div className="pt-2 border-t border-[#e3e8ee] text-center font-tabular">
           <p className="text-[10px] text-[#64748d] flex items-center justify-center gap-1">
             <ShieldCheck className="w-3 h-3 text-emerald-600" />
-            Notes are encrypted locally. Zero cloud tracking of personal interactions.
+            Notes are stored only on this device and never sent anywhere.
           </p>
         </div>
       </div>

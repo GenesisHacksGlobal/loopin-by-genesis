@@ -49,6 +49,28 @@ export const QRBadge: React.FC<QRBadgeProps> = ({ user, event, openScanner }) =>
     {} as Record<string, string | undefined>
   );
 
+  /**
+   * Plain JSON QR payload — includes profile fields for MVP 
+   * so that peer-to-peer scanning works without a backend.
+   * Fields:
+   *   userId    – internal user reference
+   *   eventId   – scoped to this Genesis event
+   *   timestamp – epoch ms; used by scanner to enforce time-bound validity
+   *   sig       – reserved for future cryptographic signature (HMAC / JWT)
+   *   fullName, roleTitle, pitch, avatar – basic profile info
+   */
+  const qrPayload = {
+    userId: user.id,
+    eventId: event.id,
+    timestamp: Date.now(),
+    sig: signature, // placeholder — replace with HMAC/JWT in Phase 2
+    fullName: user.fullName,
+    roleTitle: user.roleTitle,
+    pitch: user.pitch.length > 40 ? `${user.pitch.substring(0, 40)}...` : user.pitch,
+  };
+
+  // The full QRPayload type (with profile fields) is still used for the
+  // in-memory copy/share token so the existing Copy Pass Token button works.
   const payload: QRPayload = {
     userId: user.id,
     eventId: event.id,
@@ -62,6 +84,9 @@ export const QRBadge: React.FC<QRBadgeProps> = ({ user, event, openScanner }) =>
   };
 
   const payloadString = JSON.stringify(payload);
+
+  /** The string actually encoded into the QR modules — lean and opaque. */
+  const qrValue = JSON.stringify(qrPayload);
 
   const handleCopyPayload = () => {
     navigator.clipboard.writeText(payloadString);
@@ -98,7 +123,7 @@ export const QRBadge: React.FC<QRBadgeProps> = ({ user, event, openScanner }) =>
               <p className="font-body-md text-xs text-[#533afd] font-semibold truncate">{user.roleTitle}</p>
               <div className="flex items-center gap-1.5 mt-1 text-[10px] text-[#64748d] font-tabular">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Encrypted Opaque Token</span>
+                <span>Opaque Pass Token</span>
               </div>
             </div>
           </div>
@@ -106,20 +131,13 @@ export const QRBadge: React.FC<QRBadgeProps> = ({ user, event, openScanner }) =>
           {/* QR Code Container */}
           <div className="relative p-4 rounded-2xl bg-white shadow-md border-2 border-[#e3e8ee] hover:scale-[1.01] transition-transform">
             <QRCodeSVG
-              value={payloadString}
+              value={qrValue}
               size={200}
               bgColor={"#FFFFFF"}
               fgColor={"#0D253D"}
               level={"M"}
-              includeMargin={false}
-              imageSettings={{
-                src: "https://api.iconify.design/lucide:zap.svg?color=%23533afd",
-                x: undefined,
-                y: undefined,
-                height: 32,
-                width: 32,
-                excavate: true,
-              }}
+              marginSize={0}
+              title={`Genesis Badge — ${user.fullName} @ ${event.name}`}
             />
           </div>
 
